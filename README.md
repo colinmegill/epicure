@@ -1,4 +1,4 @@
 epicure
 =======
 
-Megill family recipe app
+Megill family recipe book
