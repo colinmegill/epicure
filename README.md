@@ -1,4 +1,4 @@
 epicure
 =======
 
-Megill family recipe book
+A Recipe Book built with ReactJS
