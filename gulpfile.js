@@ -14,15 +14,31 @@ gulp.task("clean", function(cb){
 	del(["dist"], cb)
 });
 
-gulp.task("sass", function() {
-	console.log('running sass')
-	console.log(path.resolve("./src/css/_epicure.scss"))
-    return gulp.src("./src/css/_epicure.scss")
-        .pipe(sass({
-        	errLogToConsole: true
-        }))
-        .pipe(concat("styles.css"))
-        .pipe(gulp.dest("./dist/"));
+// gulp.task("sass", function() {
+// 	console.log('running sass')
+// 	console.log(path.resolve("./src/css/_epicure.scss"))
+//     return gulp.src("./src/css/_epicure.scss")
+//         .pipe(sass({
+//         	errLogToConsole: true
+//         }))
+//         .pipe(concat("styles.css"))
+//         .pipe(gulp.dest("./dist/"));
+// });
+
+var cssmin = require("gulp-cssmin");
+var autoprefixer = require("gulp-autoprefixer");
+
+gulp.task("sass", function () {
+  return gulp.src("./src/css/main.scss")
+    .pipe(sass({
+      errLogToConsole: true,
+      onError: function (err) {
+        console.log(err);
+      }
+    }))
+    .pipe(autoprefixer())
+    .pipe(cssmin())
+    .pipe(gulp.dest("./dist"));
 });
 
 gulp.task("js", function() {
