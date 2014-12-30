@@ -1,0 +1,42 @@
+{
+  "name": "epicure",
+  "version": "0.0.1",
+  "description": "Recipe Book",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:colinmegill/epicure.git"
+  },
+  "author": "Colin Megill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/colinmegill/epicure/issues"
+  },
+  "homepage": "https://github.com/colinmegill/epicure",
+  "dependencies": {
+    "express": "~4.10.6",
+    "gulp": "~3.8.10",
+    "react": "~0.12.2",
+    "gulp-jsx": "~0.6.1",
+    "lodash": "~2.4.1",
+    "lb-ratio": "~0.4.1",
+    "gulp-browserify": "~0.5.0",
+    "reflux": "~0.2.1",
+    "react-tools": "~0.12.2",
+    "gulp-concat": "~2.4.3",
+    "gulp-livereload": "~3.0.2",
+    "gulp-watch": "~3.0.0",
+    "gulp-reactify": "~1.0.1",
+    "react-router": "~0.11.6",
+    "envify": "~3.2.0",
+    "browserify": "~8.0.2",
+    "vinyl-source-stream": "~1.0.0",
+    "del": "~1.1.1",
+    "reactify": "~0.17.1",
+    "gulp-sass": "~1.2.4",
+    "jquery": "~2.1.3"
+  }
+}
