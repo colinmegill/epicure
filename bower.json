@@ -1,0 +1,22 @@
+{
+  "name": "epicure",
+  "version": "0.0.0",
+  "homepage": "https://github.com/colinmegill/epicure",
+  "authors": [
+    "Colin Megill <colinmegill@gmail.com>"
+  ],
+  "description": "Recipe Book",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.1",
+    "font-awesome": "~4.2.0"
+  }
+}
