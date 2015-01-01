@@ -9,7 +9,7 @@ app.use(function(req, res, next) {
     return next();
 });
 
-app.use(express.static(__dirname + "/dist"));
+app.use(express.static(__dirname + "/build"));
 
 var port = process.env.PORT || 3000;
 app.listen(port);

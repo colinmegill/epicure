@@ -11,10 +11,11 @@ var sass = require("gulp-sass");
 var path = require("path")
 var cssmin = require("gulp-cssmin");
 var autoprefixer = require("gulp-autoprefixer");
-var nodemon = require("nodemon");
+var saneWatch = require('gulp-sane-watch');
 
-gulp.task("clean", function(cb){
-	del(["dist"], cb)
+
+gulp.task("cleanBuild", function(cb){
+	del(["build"], cb)
 });
 
 gulp.task("css", function () {
@@ -22,7 +23,7 @@ gulp.task("css", function () {
     .pipe(sass({errLogToConsole: true}))
     .pipe(autoprefixer())
     .pipe(cssmin())
-    .pipe(gulp.dest("./dist"))
+    .pipe(gulp.dest("./build"))
     .pipe(livereload());
 });
 
@@ -37,24 +38,32 @@ gulp.task("js", function() {
     		.bundle()
         .pipe(source("main.js"))
         // if desired, pipe to uglify or other tasks here before writing to disk
-        .pipe(gulp.dest("./dist/"))
+        .pipe(gulp.dest("./build/"))
         .pipe(livereload());
 });
 
 gulp.task("html", function() {
 	gulp.src("./src/index.html")
         .pipe(embedlr())
-		.pipe(gulp.dest("./dist/"))
+		.pipe(gulp.dest("./build/"))
         .pipe(livereload())
 })
 
-gulp.task("watchServer", function() {
-	// gulp.
-})
-
-gulp.task("watchSrc", function() {
+gulp.task("watchAndReload", function() {
     livereload.listen()
-    gulp.watch(["./src/**/*"], ["default"]);
+    saneWatch("./src/**/*.html", function() {
+        gulp.start("html");
+    }); 
+    saneWatch("./src/**/*.scss", function() {
+        gulp.start("css");
+    }); 
+    saneWatch(["./src/**/*.js","./src/**/*.jsx"], function() {
+        gulp.start("js");
+    }); 
 });
 
-gulp.task("default", ["js", "css", "html", "watchSrc", "watchServer"])
+// gulp.task("watchSrc", function() {
+//     gulp.watch(["./src/**/*"], ["default"]);
+// });
+
+gulp.task("default", ["js", "css", "html", "watchAndReload"])
