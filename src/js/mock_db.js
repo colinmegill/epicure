@@ -26,7 +26,7 @@ module.exports = [
 			{ingredient: "green pepper", quantity: 1, measurement: null, qualifier: "chopped fine"},
 			{ingredient: "garlic clove", quantity: 1, measurement: null, qualifier: null},
 			{ingredient: "olive oil", quantity: 1, measurement: "tablespoon", qualifier: null},
-			{ingredient: "tomato", quantity: 3, measurement: cups, qualifier: "chopped"},
+			{ingredient: "tomato", quantity: 3, measurement: "cups", qualifier: "chopped"},
 			{ingredient: "parsley", quantity: .25, measurement: "cup", qualifier: "chopped"},
 			{ingredient: "basil", quantity: 1, measurement: "teaspoon", qualifier: "dried"},
 			{ingredient: "eggplant", quantity: 1.5, measurement: "pounds", qualifier: null},

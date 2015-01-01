@@ -1,44 +1,29 @@
 var gulp = require("gulp");
 var browserify = require("browserify");
 var concat = require("gulp-concat");
-var watch = require("gulp-watch");
 var jsx = require("gulp-jsx");
 var source = require("vinyl-source-stream");
 var del = require("del");
 var reactify = require("reactify");
 var livereload = require("gulp-livereload");
+var embedlr = require("gulp-embedlr");
 var sass = require("gulp-sass");
 var path = require("path")
+var cssmin = require("gulp-cssmin");
+var autoprefixer = require("gulp-autoprefixer");
+var nodemon = require("nodemon");
 
 gulp.task("clean", function(cb){
 	del(["dist"], cb)
 });
 
-// gulp.task("sass", function() {
-// 	console.log('running sass')
-// 	console.log(path.resolve("./src/css/_epicure.scss"))
-//     return gulp.src("./src/css/_epicure.scss")
-//         .pipe(sass({
-//         	errLogToConsole: true
-//         }))
-//         .pipe(concat("styles.css"))
-//         .pipe(gulp.dest("./dist/"));
-// });
-
-var cssmin = require("gulp-cssmin");
-var autoprefixer = require("gulp-autoprefixer");
-
-gulp.task("sass", function () {
+gulp.task("css", function () {
   return gulp.src("./src/css/main.scss")
-    .pipe(sass({
-      errLogToConsole: true,
-      onError: function (err) {
-        console.log(err);
-      }
-    }))
+    .pipe(sass({errLogToConsole: true}))
     .pipe(autoprefixer())
     .pipe(cssmin())
-    .pipe(gulp.dest("./dist"));
+    .pipe(gulp.dest("./dist"))
+    .pipe(livereload());
 });
 
 gulp.task("js", function() {
@@ -50,14 +35,26 @@ gulp.task("js", function() {
     })
     		.transform(reactify)
     		.bundle()
-        .pipe(source("bundle.js"))
+        .pipe(source("main.js"))
         // if desired, pipe to uglify or other tasks here before writing to disk
         .pipe(gulp.dest("./dist/"))
+        .pipe(livereload());
 });
 
-gulp.task("watch", function() {
-    gulp.watch("./src/css/**/*", ["sass"]);
-    gulp.watch("./src/js/**/*", ["js"]);
+gulp.task("html", function() {
+	gulp.src("./src/index.html")
+        .pipe(embedlr())
+		.pipe(gulp.dest("./dist/"))
+        .pipe(livereload())
+})
+
+gulp.task("watchServer", function() {
+	// gulp.
+})
+
+gulp.task("watchSrc", function() {
+    livereload.listen()
+    gulp.watch(["./src/**/*"], ["default"]);
 });
 
-gulp.task("default", ["js", "sass"])
+gulp.task("default", ["js", "css", "html", "watchSrc", "watchServer"])
