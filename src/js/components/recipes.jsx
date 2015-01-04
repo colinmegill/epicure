@@ -22,6 +22,9 @@ var Recipes = React.createClass({
   displayName : 'Recipes',
   propTypes: {},
   mixins : [],
+  /**
+  Get initial state grabs our fake data...
+  */
   getInitialState : function() { return {db: db} },
   componentWillMount : function() {},
   componentWillUnmount : function() {},
