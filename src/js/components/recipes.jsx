@@ -1,22 +1,44 @@
-/** @jsx React.DOM **/
-var Recipes = React.createClass({  
-  displayName : '',
+var React = require('react');
+var Recipe = require('components/recipe')
+
+/** 
+Data for now, but will be replaced with Flux
+*/ 
+
+var db = require('mock_db')
+
+/** 
+Router
+*/
+
+var Router = require('react-router');
+var RouteHandler = Router.RouteHandler;
+
+/**
+Component
+*/
+
+var Recipes = React.createClass({
+  displayName : 'Recipes',
   propTypes: {},
   mixins : [],
-  getInitialState : function() {},
+  getInitialState : function() { return {db: db} },
   componentWillMount : function() {},
   componentWillUnmount : function() {},
   render : function() {
-    var recipeNodes = this.props.foo.map(function(recipe){
+    var recipeNodes = this.state.db.map(function(recipe){
     return (
-        <Recipe baz={recipe.url}>
+        <Recipe recipe={recipe} key={recipe.id}>
         </Recipe>
-      )            
+      )
     })
     return (
     <div className="Recipes">
       <p> Recipe Bank: </p>
       {recipeNodes}
+      <RouteHandler/>
     </div>
   )}
 });
+
+module.exports = Recipes;
