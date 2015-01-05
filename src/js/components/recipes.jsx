@@ -2,17 +2,12 @@ var React = require('react');
 var Recipe = require('components/recipe')
 
 /** 
-Data for now, but will be replaced with Flux
-*/ 
-
-var db = require('mock_db')
-
-/** 
-Router
+Router & Data
 */
 
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
+var db = require('mock_db')
 
 /**
 Component
@@ -39,7 +34,7 @@ var Recipes = React.createClass({
     <div className="Recipes">
       <p> Recipe Bank: </p>
       {recipeNodes}
-      <RouteHandler/>
+      <RouteHandler {...this.props}/>
     </div>
   )}
 });

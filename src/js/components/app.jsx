@@ -1,9 +1,10 @@
 var React = require('react');
 var Recipes = require('components/recipes');
 
+/** 
+Router
+*/
 
-
-// Router
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
