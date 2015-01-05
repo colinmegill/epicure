@@ -12,23 +12,22 @@ var Link = Router.Link;
 Child Components
 */
 
-var Nav = require('components/nav')
 
 /**
 Component
 */
 
-var App = React.createClass({  
-  displayName : 'App',
+var Nav = React.createClass({  
+  displayName : 'Nav',
   propTypes: {},
   mixins : [],
   getInitialState : function() { return null },
   componentWillMount : function() {},
   componentWillUnmount : function() {},
   render : function() { return (
-    <div className="epicureContainer">
-      <Nav/>
-      <RouteHandler {...this.props}/>
+    <div>
+      <span className="navLink"> <Link to="app"> Home</Link> </span>
+      <span className="navLink"> <Link to="recipes"> Recipes</Link></span>
     </div>
 		)
   }
@@ -41,4 +40,4 @@ http://facebook.github.io/react/docs/jsx-spread.html
 https://github.com/rackt/react-router/blob/master/docs/guides/overview.md#dynamic-segments
 */ 
 
-module.exports = App;
+module.exports = Nav;

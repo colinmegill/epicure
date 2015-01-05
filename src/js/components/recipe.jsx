@@ -22,7 +22,6 @@ var Recipe = React.createClass({
     			{this.props.recipe.title}
         </Link>
     	</p>
-      <p> Serves: {this.props.recipe.portions} (change)</p> 
       <RouteHandler/>
     </div>
   )}
