@@ -32,21 +32,3 @@ module.exports = Recipe;
 
 
 
-/**
-Ingredient 
-
-  render : function() {
-    var ingredientNodes = *ingredents*.map(function(ingredient){
-    return (
-        <Recipe recipe={recipe} key={recipe.id}>
-        </Recipe>
-      )
-    })
-    return (
-    <div className="Recipes">
-      <p> Recipe Bank: </p>
-      {recipeNodes}
-      <RouteHandler {...this.props}/>
-    </div>
-  )}
-*/

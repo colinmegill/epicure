@@ -1,12 +1,29 @@
+/**
+React
+*/
+
 var React = require('react');
 
-// Router & Data
+/** 
+Router & Data
+*/
+
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 // RecipeStore = require('recipe').RecipeStore
 var request = require('superagent');
 var db = require('mock_db');
 var _ = require('lodash');
+
+/**
+Child Components
+*/
+
+var Ingredient = require('components/ingredient');
+
+/**
+Component 
+*/
 
 var RecipeDetails = React.createClass({  
   displayName : 'RecipeDetails',
@@ -31,19 +48,53 @@ var RecipeDetails = React.createClass({
     return {recipe : recipe} 
   },
   componentWillMount : function() {
+    /**
+    Process instructions to split string on newline
+    */
+
+    /**
+    Make servings a controlled input and 
+    http://facebook.github.io/react/docs/forms.html#controlled-components
+    */ 
+
   },
   componentWillUnmount : function() {},
   render : function() {
+    var ingredientNodes = recipe.ingredients.map(function(ingredient){
+    return (
+        <Ingredient ingredient={ingredient}/>
+      )
+    })
     return(
-    <div className="recipe">
-    	<p> 
-    		{this.state.recipe.title} 
-    	</p>
-      <p> Serves: {this.state.recipe.portions} (change)</p> 
-      <p> Instructions: {this.state.recipe.instructions} (change)</p> 
-      <RouteHandler/>
+    <div className="Recipe">
+      <p className="Recipe-title">{this.state.recipe.title}</p>
+      <p> Serves: {this.state.recipe.portions} (change)</p>      
+      <div className="row">
+        <div className="col-lg-4"> 
+          {ingredientNodes}
+        </div>
+        <div className="Recipe-instructions col-lg-4"> 
+          <p>{this.state.recipe.instructions}</p> 
+        </div>
+      </div>
+      <RouteHandler {...this.props}/>
     </div>
   )}
 });
 
 module.exports = RecipeDetails;
+
+
+/**
+Ingredient 
+
+  render : function() {
+
+    return (
+    <div className="Recipes">
+      <p> Recipe Bank: </p>
+      {recipeNodes}
+      <RouteHandler {...this.props}/>
+    </div>
+  )}
+*/
