@@ -21,7 +21,7 @@ RecipeDetails
 
 }
 
-.Recipe-instructions {
+.Recipe-instructions p {
 
 }
 
@@ -29,17 +29,18 @@ RecipeDetails
 Ingredient specific
 */
 
-.Recipe-ingredient p {
-	margin-bottom: 0px;
+.Recipe-ingredient {
+
 }
 
 .Recipe-ingredientLeft {
 	font-weight: 700;
 	text-align: right;
+	margin-bottom: 0px;
 }
 
 .Recipe-ingredientRight {
-
+	margin-bottom: 0px;
 }
 
 .Recipe-ingredientSubsectionTitle {

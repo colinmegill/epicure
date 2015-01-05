@@ -20,7 +20,7 @@ module.exports = window.mock_db = [
 			{ingredient: "salt", quantity: .75, measurement: "teaspoon", modifier: null},
 			{ingredient: "swiss chard leaves", quantity: 16, measurement: "leaves", modifier: "large"}
 		],
-		instructions: "Preheat oven to 350°F. \n Saute onion in oil. Mix all ingredients except chard. \n Wash and dry chard leaves and remove stems, including the fat part of the rib if it extends rigidly up into the leaf (select leaves that are not too 'ribby'). Place 2 tablespoons or more of filling on the underside of the leaf, a third of the way from the bottom. Fold over the sides of the leaf and roll up into a square packet. Place seam-side down in a greased casserole. Cover and bake for about 30 minutes. Alternatively, steam the rolls in a steamer basket over boiling water until the leaves are tender, about 20 minutes. Bake any extra filling and serve with stuffed leaves." 
+		instructions: "Preheat oven to 350°F. \n Saute onion in oil. Mix all ingredients except chard. \n Wash and dry chard leaves and remove stems, including the fat part of the rib if it extends rigidly up into the leaf (select leaves that are not too 'ribby'). Place 2 tablespoons or more of filling on the underside of the leaf, a third of the way from the bottom. Fold over the sides of the leaf and roll up into a square packet. Place seam-side down in a greased casserole. Cover and bake for about 30 minutes. \n Alternatively, steam the rolls in a steamer basket over boiling water until the leaves are tender, about 20 minutes. Bake any extra filling and serve with stuffed leaves." 
 	},
 	{
 		id: "70dd964b-6225-4d7c-8b1e-7e983d901a80",

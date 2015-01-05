@@ -52,6 +52,10 @@ var RecipeDetails = React.createClass({
     Process instructions to split string on newline
     */
 
+    var str = this.state.recipe.instructions;
+    var html = "<p>" + str.replace(/\n([ \t]*\n)+/g, '</p><p>').replace(/\n/g, '</p><p>') + "</p>";
+    this.state.parsedInstructions = html;
+
     /**
     Make servings a controlled input and 
     http://facebook.github.io/react/docs/forms.html#controlled-components
@@ -73,9 +77,10 @@ var RecipeDetails = React.createClass({
         <div className="col-lg-4"> 
           {ingredientNodes}
         </div>
-        <div className="Recipe-instructions col-lg-4"> 
-          <p>{this.state.recipe.instructions}</p> 
-        </div>
+        <div 
+          className="Recipe-instructions col-lg-4" 
+          dangerouslySetInnerHTML={{__html: this.state.parsedInstructions}}
+        /> 
       </div>
       <RouteHandler {...this.props}/>
     </div>

@@ -33,7 +33,7 @@ var Ingredient = React.createClass({
       var f = fractionString.split("/")
       uni = characterFor(f[0],f[1]);
       if (uni) {
-        return uni
+        return uni;
       } else { 
         return fractionString;
       }
@@ -62,7 +62,7 @@ var Ingredient = React.createClass({
         </p>
       </div>
     	<div className="col-lg-6">
-        <p>
+        <p className="Recipe-ingredientRight">
           {this.state.fraction} {this.props.ingredient.measurement} <em>{this.props.ingredient.modifier}</em>
         </p>
       </div>
